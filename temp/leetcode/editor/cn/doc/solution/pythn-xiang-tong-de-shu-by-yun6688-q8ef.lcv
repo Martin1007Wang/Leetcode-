@@ -1,0 +1,56 @@
+> Problem: [100. 相同的树](https://leetcode.cn/problems/same-tree/description/)
+
+[TOC]
+
+# 思路
+
+dfs遍历
+
+# 解题方法
+
+> 描述你的解题方法
+
+# 复杂度
+
+- 时间复杂度:
+
+> 添加时间复杂度, 示例： $O(n)$
+
+- 空间复杂度:
+
+> 添加空间复杂度, 示例： $O(n)$
+
+# Code
+
+* []
+
+```Python
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        
+        def dfs(node):
+            if not node: 
+                val.append(None)
+                return
+            val.append(node.val)
+            dfs(node.left)
+            dfs(node.right)
+
+        val = []
+        dfs(p)
+
+        valp = val
+        val = []
+        dfs(q)
+        
+        return valp==val
+
+```
+

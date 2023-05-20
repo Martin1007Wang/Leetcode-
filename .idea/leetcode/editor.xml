@@ -3,6 +3,61 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[1008]前序遍历构造二叉搜索树.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[1008]前序遍历构造二叉搜索树.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1008" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[1008]前序遍历构造二叉搜索树.py" />
+              <option name="titleSlug" value="construct-binary-search-tree-from-preorder-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[100]相同的树.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[100]相同的树.md" />
+              <option name="frontendQuestionId" value="leetcode.cn100" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[100]相同的树.py" />
+              <option name="titleSlug" value="same-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[104]二叉树的最大深度.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[104]二叉树的最大深度.md" />
+              <option name="frontendQuestionId" value="leetcode.cn104" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[104]二叉树的最大深度.py" />
+              <option name="titleSlug" value="maximum-depth-of-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[105]从前序与中序遍历序列构造二叉树.md" />
+              <option name="frontendQuestionId" value="leetcode.cn105" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树.py" />
+              <option name="titleSlug" value="construct-binary-tree-from-preorder-and-inorder-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[1079]活字印刷.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[1079]活字印刷.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1079" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[1079]活字印刷.py" />
+              <option name="titleSlug" value="letter-tile-possibilities" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[1335]工作计划的最低难度.py">
           <value>
             <LeetcodeEditor>
@@ -11,6 +66,39 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[1335]工作计划的最低难度.py" />
               <option name="titleSlug" value="minimum-difficulty-of-a-job-schedule" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[13]罗马数字转整数.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[13]罗马数字转整数.md" />
+              <option name="frontendQuestionId" value="leetcode.cn13" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[13]罗马数字转整数.py" />
+              <option name="titleSlug" value="roman-to-integer" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[167]两数之和 II - 输入有序数组.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[167]两数之和 II - 输入有序数组.md" />
+              <option name="frontendQuestionId" value="leetcode.cn167" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[167]两数之和 II - 输入有序数组.py" />
+              <option name="titleSlug" value="two-sum-ii-input-array-is-sorted" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[206]反转链表.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[206]反转链表.md" />
+              <option name="frontendQuestionId" value="leetcode.cn206" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[206]反转链表.py" />
+              <option name="titleSlug" value="reverse-linked-list" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -36,6 +124,61 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[25]K 个一组翻转链表.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[25]K 个一组翻转链表.md" />
+              <option name="frontendQuestionId" value="leetcode.cn25" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[25]K 个一组翻转链表.py" />
+              <option name="titleSlug" value="reverse-nodes-in-k-group" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[26]删除有序数组中的重复项.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[26]删除有序数组中的重复项.md" />
+              <option name="frontendQuestionId" value="leetcode.cn26" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[26]删除有序数组中的重复项.py" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[27]移除元素.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[27]移除元素.md" />
+              <option name="frontendQuestionId" value="leetcode.cn27" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[27]移除元素.py" />
+              <option name="titleSlug" value="remove-element" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[283]移动零.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[283]移动零.md" />
+              <option name="frontendQuestionId" value="leetcode.cn283" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[283]移动零.py" />
+              <option name="titleSlug" value="move-zeroes" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[344]反转字符串.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[344]反转字符串.md" />
+              <option name="frontendQuestionId" value="leetcode.cn344" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[344]反转字符串.py" />
+              <option name="titleSlug" value="reverse-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[34]在排序数组中查找元素的第一个和最后一个位置.py">
           <value>
             <LeetcodeEditor>
@@ -44,6 +187,39 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[34]在排序数组中查找元素的第一个和最后一个位置.py" />
               <option name="titleSlug" value="find-first-and-last-position-of-element-in-sorted-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[543]二叉树的直径.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[543]二叉树的直径.md" />
+              <option name="frontendQuestionId" value="leetcode.cn543" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[543]二叉树的直径.py" />
+              <option name="titleSlug" value="diameter-of-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[570]至少有5名直接下属的经理.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[570]至少有5名直接下属的经理.md" />
+              <option name="frontendQuestionId" value="leetcode.cn570" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[570]至少有5名直接下属的经理.py" />
+              <option name="titleSlug" value="managers-with-at-least-5-direct-reports" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[5]最长回文子串.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[5]最长回文子串.md" />
+              <option name="frontendQuestionId" value="leetcode.cn5" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[5]最长回文子串.py" />
+              <option name="titleSlug" value="longest-palindromic-substring" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -69,6 +245,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[83]删除排序链表中的重复元素.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[83]删除排序链表中的重复元素.md" />
+              <option name="frontendQuestionId" value="leetcode.cn83" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[83]删除排序链表中的重复元素.py" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-list" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[86]分隔链表.py">
           <value>
             <LeetcodeEditor>
@@ -77,6 +264,39 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[86]分隔链表.py" />
               <option name="titleSlug" value="partition-list" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[92]反转链表 II.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[92]反转链表 II.md" />
+              <option name="frontendQuestionId" value="leetcode.cn92" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[92]反转链表 II.py" />
+              <option name="titleSlug" value="reverse-linked-list-ii" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[剑指 Offer 24]反转链表.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[剑指 Offer 24]反转链表.md" />
+              <option name="frontendQuestionId" value="leetcode.cn剑指 Offer 24" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[剑指 Offer 24]反转链表.py" />
+              <option name="titleSlug" value="fan-zhuan-lian-biao-lcof" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/temp/leetcode/editor/cn/[剑指 Offer II 024]反转链表.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/temp/leetcode/editor/cn/doc/content/[剑指 Offer II 024]反转链表.md" />
+              <option name="frontendQuestionId" value="leetcode.cn剑指 Offer II 024" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/temp/leetcode/editor/cn/[剑指 Offer II 024]反转链表.py" />
+              <option name="titleSlug" value="UHnkqh" />
             </LeetcodeEditor>
           </value>
         </entry>
