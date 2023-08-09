@@ -1,0 +1,28 @@
+在数组中求和为k的对数
+1、先对数组进行排序。
+2、头指针指向第一个数，尾指针指向最后一个数。
+3、头尾指针向中间靠，并计算途中和是否为k即可。
+
+* 
+
+```
+public int maxOperations(int[] nums, int k) {
+    Arrays.sort(nums);
+    int l = 0, r = nums.length - 1;
+    int ans = 0;
+    while (l < r) {
+        int res = nums[l] + nums[r];
+        if (res > k) {
+            r--;
+        } else if (res < k) {
+            l++;
+        } else {
+            ans++;
+            l++;
+            r--;
+        }
+    }
+    return ans;
+}
+```
+

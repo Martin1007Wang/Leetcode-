@@ -1,0 +1,56 @@
+> Problem: [32. 最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/description/)
+
+[TOC]
+
+# 思路
+
+- 栈的思想在于匹配到合适的元素出栈，没有匹配到就进栈。
+- 本题的关键在于“有效括号”可能存在多个，如何进行长度计算才是重点：
+
+> 由于只有一种括号类型，我们可以把下标作为入栈的元素。
+
+> 由于有效括号不断地进栈出栈，栈中最后一个位置始终为有效括号的起点，可以得到当前有效括号的长度：“当前位置 - 栈中最后一个元素”。
+
+> 我们可以设定一个默认值“-1”作为栈的起点，由于本题是遇到右括号出栈，当栈为空的时候就证明遇到了右括号开头，需要以当前下标为起点重新计算长度。
+
+# 复杂度
+
+- 时间复杂度: O(n)
+- 空间复杂度: O(n)
+
+# Code
+
+* []
+
+```JavaScript
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestValidParentheses = function (s) {
+  let max = 0;
+  let stack = [-1];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === ')') {
+      stack.pop();
+
+      if (stack.length === 0) {
+        stack.push(i);
+        continue;
+      }
+
+      const cur = i - stack[stack.length - 1];
+      if (cur > max) max = cur;
+      continue;
+    }
+
+    stack.push(i);
+  }
+
+  return max;
+};
+
+```
+

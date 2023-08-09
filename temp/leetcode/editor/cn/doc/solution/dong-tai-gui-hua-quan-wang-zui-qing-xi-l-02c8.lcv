@@ -1,0 +1,88 @@
+[1143. 最长公共子序列](/problems/longest-common-subsequence/)
+
+# 知识回顾
+
+**动态规划**是一种通过将原问题分解为子问题来求解复杂问题的算法思想。它通常用于**求解最优化问题**，例如最长公共子序列、背包问题等。动态规划的核心思想是将原问题分解为若干个子问题，通过求解子问题的最优解**自下而上**推导出原问题的最优解。
+
+# 思路解析
+
+本题就是经典的二维动态规划问题，还是要找到解决动态规划问题的两个突破点：**推导出状态转移公式**和**边界条件处理**。
+
+首先定义`dp[i][j]`为`text1`的`[0,i)`区间和`text2`的`[0,j)`区间的最长公共子序列。`[0,i)`区间的长度为`i`，`[0,j)`区间的长度为`j`。
+
+接下来我们来看两种情况下的**子问题分解**：
+1. `text1[i-1] == text2[j-1]`，这个时候`text1`的`[0,i)`区间和`text2`的`[0,j)`区间上的最长公共子序列就变成了 ***`text1`的`[0,i-1)`区间和`text2`的`[0,j-1)`区间上的最长公共子序列加`1`*** 。即`dp[i][j]=dp[i-1][j-1]+1`。
+   ![image.png](https://pic.leetcode.cn/1685284584-TWMYBX-image.png)
+2. `text1[i-1] != text2[j-1]`，这个时候`text1`的`[0,i)`区间和`text2`的`[0,j)`区间上的最长公共子序列就变成了 ***`text1`的`[0,i-1)`区间和`text2`的`[0,j)`区间上的最长公共子序列*** 以及 ***`text1`的`[0,i)`区间和`text2`的`[0,j-1)`区间上的最长公共子序列*** 中比较长的一个。即`dp[i][j]=max(dp[i-1][j],dp[i][j-1])`。
+   ![image.png](https://pic.leetcode.cn/1685284611-IZUfzv-image.png)
+
+由于整个推导过程是**自下而上**的，在求`dp[i][j]`的时候`dp[i-1][j-1]`，`dp[i][j-1]`，`dp[i-1][j]`都是已经推出结果的。
+
+所以**状态转移公式**为：
+![image.png](https://pic.leetcode.cn/1685284632-CwsIzq-image.png)
+
+对于**边界条件**，很明显`dp[i][0] = 0`且`dp[j][0] = 0`。
+
+`text1 = "abcde"`， `text2 = "ace"`的推导过程如下图：
+
+![image.png](https://pic.leetcode.cn/1685284661-aHkgAA-image.png)
+最终`dp[5][3]=3`，最长公共子序列的长度为`3`。
+
+# C++代码
+
+* 
+
+```
+class Solution {
+public:
+    int longestCommonSubsequence(string text1, string text2) {
+        int text1_len = text1.length();
+        int text2_len = text2.length();
+        //定义二维dp数组，并初始化，dp[i][0]=0 dp[0][j]=0
+        vector<vector<int>> dp(text1_len + 1, vector<int>(text2_len + 1, 0));
+
+        for (int i = 0; i < text1_len; ++i) {
+            for (int j = 0; j < text2_len; ++j) {
+                //text1[i] == text2[j]
+                if (text1[i] == text2[j]) {
+                    //状态转移公式
+                    dp[i+1][j+1] = dp[i][j] + 1;
+                 //text1[i] != text2[j]
+                } else {
+                    //状态转移公式
+                    dp[i+1][j+1] = max(dp[i+1][j], dp[i][j+1]);
+                }
+            }
+        }  
+        return dp[text1_len][text2_len];
+    }
+};
+
+```
+
+# 复杂度分析
+
+**时间复杂度：** *O(m\*n)* ，其中`m`为`text1`的长度，`n`为`text2`的长度。
+
+**空间复杂度：** *O(m\*n)* ，其中`m`为`text1`的长度，`n`为`text2`的长度。
+
+# 同类型高频面试题题解
+
+| 题目 | 类型 |
+| :----: | :----: |
+|[70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/solutions/2287655/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-cd8y/)|动态规划|
+|[322. 零钱兑换](https://leetcode.cn/problems/coin-change/solutions/2287669/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-9pcp/)|动态规划、回溯|
+|[300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/solutions/2287687/dong-tai-gui-hua-er-fen-cha-zhao-quan-wa-q2wh/)|动态规划、二分法|
+|[1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/solutions/2287694/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-02c8/)|动态规划|
+|[39. 组合总和](https://leetcode.cn/problems/combination-sum/solutions/2287700/hui-su-quan-wang-zui-qing-xi-liu-da-hu-a-qv7h/)|动态规划|
+|[139. 单词拆分](https://leetcode.cn/problems/word-break/solutions/2305155/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-fv99/)|动态规划|
+|[198. 打家劫舍](https://leetcode.cn/problems/house-robber/solutions/2305174/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-kr49/)|动态规划|
+|[213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/solutions/2305197/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-ly5l/)|动态规划|
+|[91. 解码方法](https://leetcode.cn/problems/decode-ways/solutions/2305211/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-g1pq/)|动态规划、回溯|
+|[62. 不同路径](https://leetcode.cn/problems/unique-paths/solutions/2305242/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-hkm3/)|动态规划|
+|[55. 跳跃游戏](https://leetcode.cn/problems/jump-game/solutions/2305250/tan-xin-quan-wang-zui-qing-xi-liu-da-hu-qtjqa/)|贪心|
+
+---
+
+关注 [@溜达虎爱编程](/u/xiaohuozi-2)，带你刷题带你拿offer。
+

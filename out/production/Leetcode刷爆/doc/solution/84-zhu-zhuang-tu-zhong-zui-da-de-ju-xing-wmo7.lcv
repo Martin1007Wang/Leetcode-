@@ -1,0 +1,55 @@
+> Problem: [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/description/)
+
+[TOC]
+
+# 思路一 左边、右边第一个比它小的数（单调栈）
+
+对于每一个高度，需要找到左右第一个比它小的数，这样，以这个高度的矩形的最大宽度就可以确定了，这就是单调栈的经典应用，预处理左右的第一个比它小的数。
+
+## Code
+
+待补充
+
+# 思路二 直接单调栈
+
+当当前元素x比栈顶元素小的时候，那么栈中的比x大的高度就没有用了，全部出栈，并计算最大面积，因为比x大的元素向右的最大值就已经找到了，就可以直接计算面积的最大值了，这样整个栈就是单调增的，这样，每个高度的矩形的最大面积可以直接得到：height[i]*width
+
+## Code
+
+* []
+
+```Java
+
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int ans = 0;
+        Stack<Integer> st = new Stack<Integer>();
+        for(int i=0;i<n;i++){
+            //当当前元素x比栈顶元素小的时候，那么栈中的比x大的高度就没有用了，全部出栈，并计算最大面积，因为比x大的元素向右的最大值就已经找到了，就可以直接计算面积的最大值了
+            int width = 0;
+            while(!st.empty() && st.peek()>heights[i]){
+                int val = st.pop();
+                width++;
+                ans = Math.max(ans,width*val);
+            }
+            //把这些删除的元素全部替换成heights[i]的高度，因为向右的最大值还不知道
+            while(width>0){
+                st.push(heights[i]);
+                width--;
+            }
+            st.push(heights[i]);
+            
+        }
+        //最后再进行一轮处理
+        int width = 1;
+        while(st.size()>0){
+            int val = st.pop();
+            ans = Math.max(ans,width*val);
+            width++;
+        }
+        return ans;
+    }
+}
+```
+

@@ -1,0 +1,54 @@
+* java
+
+```java
+public class Solution605 {
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 0, 0, 0, 0, 1};
+        int[] arr1 = {0, 0, 1, 0, 1};
+        int[] arr2 = {1, 0, 0, 0, 1};
+        int[] arr3 = {1};
+        int[] arr4 = {1, 0, 0, 0, 1, 0, 0};
+        int[] arr5 = {0};
+        int[] arr6 = {0, 1, 0};
+        System.out.println(canPlaceFlowers(arr, 2));
+        System.out.println(canPlaceFlowers(arr1, 1));
+        System.out.println(canPlaceFlowers(arr2, 1));
+        System.out.println(canPlaceFlowers(arr3, 0));
+        System.out.println(canPlaceFlowers(arr4, 2));
+        System.out.println(canPlaceFlowers(arr5, 1));
+        System.out.println(canPlaceFlowers(arr6, 1));
+    }
+
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+
+        for (int i = 0; i < flowerbed.length; ) {
+            // 1.如果当前地块还没种花
+            if (flowerbed[i] == 0) {
+                /**
+                 *  1.1 如果当前是最后一块地，那么不用考虑后面相邻的问题，直接种
+                 *  1.2 如果下一块地没种过，那么也可以直接种
+                 *  这里我们保证下一步跳的地跟上一块地都是没有相邻种的，所以只需考虑后面就行
+                  */
+                if (i == flowerbed.length - 1 || flowerbed[i + 1] != 1) {
+                    flowerbed[i] = 1;
+                    n--;
+                    if (n == 0) {
+                        return true;
+                    }
+                    // 下一块地是0，当前地种了，跳到下下块
+                    i += 2;
+                } else {
+                    // 如果下一块地有种过，那么至少要跳到下一块地的下下块地，毕竟不能相邻嘛
+                    i += 3;
+                }
+            } else {
+                // 2.如果当前地块种花了，由于不能相邻种，所以至少要跳到下下块地
+                i += 2;
+            }
+        }
+
+        return n <= 0;
+    }
+}
+```
+

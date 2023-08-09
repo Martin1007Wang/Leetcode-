@@ -1,0 +1,41 @@
+### 解题思路
+
+定义好一个字典，每次循环都把字典中右指针指着的键的键值加一，然后不断扩张右窗口
+直到0的键值大于一，这个时候用一个max()函数比较(right-left-1)和max_one来储存一个最长子数组，
+减一是因为要删掉一个元素(此时窗口内最多只有一个0)，储存完后，不断收缩左窗口直到0的键值又等于1
+
+### 代码
+
+* python3
+
+```python
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+
+        nums_dict = {1:0, 0:0}
+
+        max_one = 0
+
+        left,right = 0,0
+
+        # 如果nums列表里的0小于等于1个那么直接返回长度减一即可
+        if nums.count(0) <= 1:
+            return len(nums)-1
+
+        while right < len(nums):
+
+            key = nums[right]
+            nums_dict[key]+=1
+
+            while nums_dict[0] > 1:
+                max_one = max(max_one,(right-left-1))
+                nums_dict[nums[left]]-=1
+                left+=1
+            right+=1
+
+        max_one = max(max_one, (right-left-1))
+
+        return max_one
+
+```
+

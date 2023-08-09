@@ -1,0 +1,84 @@
+[198. 打家劫舍](/problems/house-robber/)
+
+# 知识回顾
+
+**动态规划**是一种通过将原问题分解为子问题来求解复杂问题的算法思想。它通常用于**求解最优化问题**，例如最长公共子序列、背包问题等。动态规划的核心思想是将原问题分解为若干个子问题，通过求解子问题的最优解**自下而上**推导出原问题的最优解。
+
+# 思路解析
+
+本题是一道经典的动态规划问题，要找到解决动态规划问题的两个突破点：**推导出状态转移公式**和**边界条件处理**。
+
+首先定义`dp[n]`表示总共有`n`间房所能偷到的最高金额。
+
+对于`nums=[1,2,3,1]`其所有可能的打劫路线如下：
+
+![image.png](https://pic.leetcode.cn/1686466406-GsXSJz-image.png)
+
+根节点到叶子节点就是一条打劫路线，每个节点是打劫到的金额，`dp[4]`就等于所有打劫路线获取金额的最大值。
+
+针对上面例子的**状态转移公式**需要分两种情况讨论：
+* 打劫路线包含第`4`间房（`nums[3]`），根据规则这个时候第`3`间房（`nums[2]`）一定是没有被打劫的，那么前`2`间房打劫到的最大金额加上第`4`间房打劫到的金额*有可能是前`4`间房打劫的最大金额`dp[4] = dp[2] + nums[3]`*。
+* 打劫路线不包含第`4`间房（`nums[3]`），这个时候前`3`间房打劫到的最大金额*有可能也是前`4`间房打劫的最大金额`dp[4] = dp[3]`*。
+
+上面两种情况选取最大值就可以得到`4`间房打劫到的最大金额`dp[4]=max(dp[2] + nums[3], dp[3])`;
+
+扩展到一般情况dp[n]可以分解为dp[n-1]，dp[n-2]**两个子问题的组合**，得到**状态转移公式**：
+
+dp[n] = max{dp[n-2] + nums[n-1], dp[n-1]}
+
+对于**边界条件** `dp[0]=0`，`dp[1]=nums[0]`，`dp[2] = max{nums[0], nums[1]}`。
+
+# C++ 代码
+
+* 
+
+```
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int nums_len = nums.size();
+        vector<int> dp(nums_len + 1, 0);
+        if (nums_len > 0) {
+            //边界条件
+            dp[1] = nums[0];
+        }
+        if (nums_len > 1) {
+            //边界条件
+            dp[2] = max(nums[0], nums[1]);
+        }
+        for (int i = 3; i < nums_len + 1; ++i) {
+            //状态转移公式
+            dp[i] = max(dp[i-1], dp[i-2] + nums[i-1]);
+        }
+        return dp[nums_len];
+    }
+};
+
+```
+
+# 复杂度分析
+
+**时间复杂度：** 只需要遍历一遍数组`nums`，所以时间复杂度为*O(n)*，`n`为`nums`的长度。
+
+**空间复杂度：** 需要借助一个`dp`数组，空间复杂度为*O(n)*，`n`为`nums`的长度。
+
+# 同类型高频面试题题解
+
+| 题目 | 类型 |
+| :----: | :----: |
+|[70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/solutions/2287655/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-cd8y/)|动态规划|
+|[322. 零钱兑换](https://leetcode.cn/problems/coin-change/solutions/2287669/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-9pcp/)|动态规划、回溯|
+|[300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/solutions/2287687/dong-tai-gui-hua-er-fen-cha-zhao-quan-wa-q2wh/)|动态规划、二分法|
+|[1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/solutions/2287694/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-02c8/)|动态规划|
+|[39. 组合总和](https://leetcode.cn/problems/combination-sum/solutions/2287700/hui-su-quan-wang-zui-qing-xi-liu-da-hu-a-qv7h/)|动态规划|
+|[139. 单词拆分](https://leetcode.cn/problems/word-break/solutions/2305155/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-fv99/)|动态规划|
+|[198. 打家劫舍](https://leetcode.cn/problems/house-robber/solutions/2305174/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-kr49/)|动态规划|
+|[213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/solutions/2305197/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-ly5l/)|动态规划|
+|[91. 解码方法](https://leetcode.cn/problems/decode-ways/solutions/2305211/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-g1pq/)|动态规划、回溯|
+|[62. 不同路径](https://leetcode.cn/problems/unique-paths/solutions/2305242/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-hkm3/)|动态规划|
+|[55. 跳跃游戏](https://leetcode.cn/problems/jump-game/solutions/2305250/tan-xin-quan-wang-zui-qing-xi-liu-da-hu-qtjqa/)|贪心|
+
+---
+
+关注 [@溜达虎爱编程](/u/xiaohuozi-2)，带你刷题带你拿offer。
+

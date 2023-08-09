@@ -1,0 +1,157 @@
+## 1.DFS - 深度优先搜索
+
+#### 方法一：DFS - 递归 - 无返回值
+
+**思路：**
+
+① 定义全局变量`goodNum`，用来统计“好节点”的数量
+
+② dfs方法入参定义`max`，用来表示从根到当前节点路径上所经过的所有节点中的最大值(不包括当前节点)
+
+③ 如果当前节点`node.val >= max`，则为“好节点”，然后更新`max`值，继续深度遍历当前节点的左孩子和右孩子，找出“好节点”
+
+* java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int goodNum = 0;
+    public int goodNodes(TreeNode root) {
+        if (root == null) {
+            return goodNum;
+        }
+        dfs(root, root.val);
+        return goodNum;
+    }
+
+    public void dfs(TreeNode node, int max) {
+        if (node == null) {
+            return;
+        }
+        if (node.val >= max) {
+            goodNum++;
+            max = node.val;
+        }
+        dfs(node.left, max);
+        dfs(node.right, max);
+    }
+}
+
+```
+
+#### 方法二：DFS - 递归 - 有返回值
+
+**思路：** 当前节点是否为好节点 + 左孩子好节点数量 + 右孩子好节点数量
+
+① dfs方法返回值表示为节点`root`的好节点的数量，即 = `root`是否为好节点 + `root`左孩子好节点数量 + `root`右孩子好节点数量。
+
+② dfs方法入参定义max，用来表示从根到当前节点路径上所经过的所有节点中的最大值(不包括当前节点)
+
+③ 如果当前节点`node.val >= max`，则当前节点为“好节点”，然后更新max值，用当前好节点 + 左孩子好节点数量 + 右孩子好节点数量，返回。
+
+* java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int goodNodes(TreeNode root) {
+        return dfs(root, root.val);
+    }
+
+    public int dfs(TreeNode root, int max) {
+        if (root == null) {
+            return 0;
+        }
+        int goodNum = root.val >= max ? 1 : 0;
+        max = Math.max(max, root.val);
+        goodNum += dfs(root.left, max);
+        goodNum += dfs(root.right, max);
+        return goodNum;
+    }
+}
+```
+
+## 2.BFS - 广度优先搜索
+
+**思路：** 按树的层级遍历节点，对每个节点对应存储从根到该节点的路径上所经过节点的最大值，然后通过比较遍历节点的值与存储的最大值，得出“好节点”的数量。
+
+![流程图.jpg](https://pic.leetcode.cn/1684218335-npBeIg-%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg)
+
+* java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int goodNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int goodNum = 0;
+        Queue<TreeNode> nodeQueue = new ArrayDeque<>();
+        Queue<Integer> maxValQueue = new ArrayDeque<>();
+        nodeQueue.offer(root);
+        maxValQueue.offer(root.val);
+        while (!nodeQueue.isEmpty()) {
+            TreeNode node = nodeQueue.poll();
+            int maxVal = maxValQueue.poll();
+            if (node.val >= maxVal) {
+                goodNum++;
+            }
+            TreeNode leftChild = node.left;
+            if (leftChild != null) {
+                nodeQueue.offer(leftChild);
+                maxValQueue.offer(Math.max(leftChild.val, maxVal));
+            }
+            TreeNode rightChild = node.right;
+            if (rightChild != null) {
+                nodeQueue.offer(rightChild);
+                maxValQueue.offer(Math.max(rightChild.val, maxVal));
+            }
+        }
+        return goodNum;
+    }
+}
+```
+

@@ -1,0 +1,78 @@
+[62. 不同路径](/problems/unique-paths/)
+
+# 知识回顾
+
+**动态规划**是一种通过将原问题分解为子问题来求解复杂问题的算法思想。它通常用于**求解最优化问题**，例如最长公共子序列、背包问题等。动态规划的核心思想是将原问题分解为若干个子问题，通过求解子问题的最优解**自下而上**推导出原问题的最优解。
+
+# 思路解析
+
+本题是经典的二维动态规划问题，需要找到解决动态规划问题的两个突破点：**推导出状态转移公式**和**边界条件处理**。
+
+首先定义`dp[i][j]`为机器人从左上角走到坐标为`(i,j)`的网格所有的路径数目，`i`为行，`j`为列。
+
+根据题意，要走到网格`(i,j)`，那么只能从网格`(i-1,j)`出发向下走一步，或者从网格`(i,j-1)`出发向右走一步。所以我们只要知道从左上角走到`(i-1,j)`的路径数目`dp[i-1][j]`和从左上角走到`(i,j-1)`的路径数目`dp[i][j-1]`，就可以推算出`dp[i][j]=dp[i-1][j] + dp[i][j-1]`。
+
+由于动态规划是自下而上的推导过程，在计算`dp[i][j]`时，子问题`dp[i-1][j]`和`dp[i][j-1]`都是已知结果的。
+
+所以**状态转移公式**为：
+
+* 
+
+```
+dp[i][j]=dp[i-1][j] + dp[i][j-1],0 < i < m, 0 < j < n
+```
+
+因为机器人只能往下和往右走，最左边和最上面的网格都只有`1`条路，所以**边界条件**`dp[i][0]=1`，`dp[0][j]=1`。
+
+对于`3 x 7`的网格其推导过程如下：
+
+![image.png](https://pic.leetcode.cn/1686469516-DxasGS-image.png)
+
+# C++代码
+
+* 
+
+```
+  class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        //定义dp并做边界初始化
+        vector<vector<int>> dp(m,vector<int>(n,1));
+        for(int i = 1;i < m; ++i){
+            for(int j = 1; j < n; ++j){
+                //状态转移公式
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+
+        return dp[m-1][n-1];
+    }
+};
+```
+
+# 复杂度分析
+
+**时间复杂度：** *O(mn)*，遍历完m x n的网格。
+
+**空间复杂度：** *O(mn)*，dp数组的大小。
+
+# 同类型高频面试题题解
+
+| 题目 | 类型 |
+| :----: | :----: |
+|[70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/solutions/2287655/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-cd8y/)|动态规划|
+|[322. 零钱兑换](https://leetcode.cn/problems/coin-change/solutions/2287669/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-9pcp/)|动态规划、回溯|
+|[300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/solutions/2287687/dong-tai-gui-hua-er-fen-cha-zhao-quan-wa-q2wh/)|动态规划、二分法|
+|[1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/solutions/2287694/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-02c8/)|动态规划|
+|[39. 组合总和](https://leetcode.cn/problems/combination-sum/solutions/2287700/hui-su-quan-wang-zui-qing-xi-liu-da-hu-a-qv7h/)|动态规划|
+|[139. 单词拆分](https://leetcode.cn/problems/word-break/solutions/2305155/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-fv99/)|动态规划|
+|[198. 打家劫舍](https://leetcode.cn/problems/house-robber/solutions/2305174/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-kr49/)|动态规划|
+|[213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/solutions/2305197/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-ly5l/)|动态规划|
+|[91. 解码方法](https://leetcode.cn/problems/decode-ways/solutions/2305211/dong-tai-gui-hua-hui-su-quan-wang-zui-qi-g1pq/)|动态规划、回溯|
+|[62. 不同路径](https://leetcode.cn/problems/unique-paths/solutions/2305242/dong-tai-gui-hua-quan-wang-zui-qing-xi-l-hkm3/)|动态规划|
+|[55. 跳跃游戏](https://leetcode.cn/problems/jump-game/solutions/2305250/tan-xin-quan-wang-zui-qing-xi-liu-da-hu-qtjqa/)|贪心|
+
+---
+
+关注[@溜达虎爱编程](/u/xiaohuozi-2)，带你刷题带你拿offer。
+

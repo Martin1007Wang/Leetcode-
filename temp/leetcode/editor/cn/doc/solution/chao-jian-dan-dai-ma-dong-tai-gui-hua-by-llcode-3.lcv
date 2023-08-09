@@ -1,0 +1,29 @@
+令fi 表示以i结尾的连续1的个数
+令bi 表示以i结尾的最多包含一个0，其他为1的个数
+
+if  nums[i+1] == 1, 则，fi+1 = fi + 1, bi+1 = bi + 1;
+nums[i+1] == 0, 则 fi+1 = 0, bi+1 = fi + 1;
+
+因为i+1 仅和i有关系，所以可以得到如下代码，使用两个局部变量表示fi 和bi，并且最终结果需要去掉删除的元素，则减一即可
+
+* 
+
+```
+public int longestSubarray(int[] nums) {
+        int f0 = 0;
+        int f1 = 0;
+        int max = 0;
+        for(int d : nums) {
+            if(d == 1) {
+                ++f0;
+                ++f1;
+            } else {
+                f0 = f1 + 1;
+                f1 = 0;
+            }
+            max = Math.max(max, f0);
+        }
+        return max - 1;
+    }
+```
+
